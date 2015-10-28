@@ -1,0 +1,8 @@
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  #
+  # Blocmarks - User Sign Up feature. Add the Devise 'confimable' moduule.
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+end
