@@ -17,6 +17,10 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Welcome", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
+        
+        <!-- Blocmarks - User Sign Up feature -->
+        <li><%= link_to "Sign In", user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
       </ul>
 
       <%= yield %>

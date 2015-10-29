@@ -38,4 +38,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # Blocmarks - User Sign Up feature
+  # See https://docs.c9.io/discuss/55034a464731190d00360648
+  config.action_mailer.default_url_options = { host: 'localhost:8080' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 end
