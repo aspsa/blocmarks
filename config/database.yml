@@ -20,6 +20,13 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# See https://devcenter.heroku.com/articles/sqlite3
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: db/blocmarks_production
+  pool: 5
+  timeout: 5000
