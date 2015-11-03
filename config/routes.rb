@@ -59,4 +59,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # Blocmarks, 4. Receive Incoming Emails
+  post :incoming, to: 'incoming#create'
 end
