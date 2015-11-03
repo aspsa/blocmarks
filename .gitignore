@@ -15,3 +15,16 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Blocmarks - 3. User Sign In and Out
+#   - When 'figaro install' was run in Terminal, it generated the 'application.yml' file.
+#
+#   - "The Figaro gem provides an elegant solution for handling sensitive data with environment variables." [Source: https://www.bloc.io/resources/environment-variables-with-figaro
+#
+# Ignore application configuration
+/config/application.yml
+
+# Ignore secrets file.
+#
+# [AP] Note: This is not technically required in this case, because 'secrets.yml' hides the development, test and production secret tokens behind the 'SECRET_KEY_BASE' environment variable.
+/config/secrets.yml

@@ -44,4 +44,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:8080' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  
+  # Blocmarks - 3. User Sign In and Out; 37. Authentication Continued
+  #
+  # If you've double-checked setup_mail.rb and the emails still aren't sending, this could be a great place to work on your debugging skills. There are two common pitfalls here, and adding the following line to your development.rb file will raise errors that should lead you to a successful Google search or mentor conversation:
+  #
+  # config/environments/development.rb
+  #   # Override Action Mailer's 'silent errors' in development
+  #   config.action_mailer.raise_delivery_errors = true
+  
+  # Override Action Mailer's 'silent errors' in development
+  config.action_mailer.raise_delivery_errors = true
 end
