@@ -1,0 +1,7 @@
+# Blocmarks - 3. User Sign In and Out
+#
+# Create a new file in your config directory named application.example.yml. This file will not be ignored and so will show up on GitHub. It only exists to demonstrate to collaborators what variables are expected, and how they should be formatted.
+#
+# This says that we're storing our Sendgrid password and username as ENV variables, but doesn't actually share that the values of these keys. This is important: do not provide values in the example file, as they will be displayed on GitHub.
+SENDGRID_PASSWORD: 
+SENDGRID_USERNAME: 
