@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   # Blocmarks - User Sign Up feature. Add the Devise 'confimable' moduule.
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         
+  # Blocmarks, 4. Receive Incoming Emails
+  has_many :topics
 end
