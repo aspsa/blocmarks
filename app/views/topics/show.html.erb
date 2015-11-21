@@ -1,0 +1,9 @@
+<p>[<%= link_to "Back to Topics", topics_path %>]</p>
+<h1>Bookmark Topic: <%= @topic.title %></h1>
+<ul>
+  <% @topic.bookmarks.each do |b| %>
+    <li>
+      <%= b.url %> | [<%= link_to "Edit", '#' %>][<%= link_to "Delete", '#' %>]
+    </li>
+  <% end %>
+</ul>
