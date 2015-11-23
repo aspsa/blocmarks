@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all
-    @user = current_user
   end
 
   def show
@@ -14,31 +13,43 @@ class TopicsController < ApplicationController
   
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
     
     if @topic.save
-      redirect_to action: "index"
+      flash[:notice] = "Topic saved."
+      redirect_to topics_path
     else
+      flash[:error] = "Error: Topic not saved."
       render "new"
     end
   end
   
   def edit
-    @topic = Topic.new(topic_params)
+    @topic = Topic.find(params[:id])
   end
   
   def update
-    @topic = Topic.new(topic_params)
+    @topic = Topic.find(params[:id])
     
-    if @topic.update
-      redirect_to action: "index"
+    if @topic.update(topic_params)
+      flash[:notice] = "Topic updated."
+      redirect_to topics_path
     else
-      render "new"
+      flash[:error] = "Error: Topic not updated."
+      render "edit"
     end
   end
   
   def destroy
-    @user = current_user
     @topic = Topic.destroy(params[:id])
+    
+    if @topic.destroy
+      flash[:notice] = "Topic deleted." # Add flash messaging to applications.html.erb
+      redirect_to topics_path
+    else
+      flash[:error] = "Error: Topic not deleted."
+      render "index"
+    end
   end
   
   private
