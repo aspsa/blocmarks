@@ -1,0 +1,13 @@
+<h1>Blocmarks Bookmark Topics</h1>
+<h4><%= link_to "Add a Topic", new_topic_path %></h4>
+<% @topics.each do |topic| %>
+  <p>
+    <%= link_to topic.title, topic %>&nbsp;
+    [<%= link_to "Home", root_path %>&nbsp;
+    <%= link_to "Edit", edit_topic_path(topic) %>&nbsp;
+    <%= link_to "Delete", topic_path(topic), method: :delete, data: { confirm: "Are you sure?" } %>]
+  </p>
+
+  <p>Bookmark posted by <%= topic.user_id %></p>
+  <p><%= link_to "Like", '#' %></p>
+<% end %>
