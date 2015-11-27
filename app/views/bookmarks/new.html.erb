@@ -1,15 +1,3 @@
-<h1>Create a New Bookmark</h1>
+<h1>Add a New Bookmark</h1>
 
-<%= form_for :bookmark do |f| %>
-  <%= f.label :url, "Bookmark Link:" %><br />
-  <%= f.text_field :url %><br /><br />
-  <%= f.submit %>
-<% end %>
-
-<!--
-%= form_for(@bookmark) do |f| %>
-  %= f.label :url, "Bookmark Link:" %>
-  %= f.text_field :url %><br /><br />
-  %= f.submit %>
-% end %>
--->
+<%= render partial: 'bookmarks' %>
