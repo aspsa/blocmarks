@@ -1,9 +1,11 @@
-<p>[<%= link_to "Back to Topics", topics_path %>]</p>
+<h4><%= link_to "Back to Topics", topics_path %></h4>
 <h1>Bookmark Topic: <%= @topic.title %></h1>
+<h4><%= link_to "Add a Bookmark", new_topic_bookmark_path(@topic) %></h4>
+
 <ul>
   <% @topic.bookmarks.each do |b| %>
     <li>
-      <%= b.url %> | [<%= link_to "Edit", '#' %>][<%= link_to "Delete", '#' %>]
+      <%= b.url %> | [<%= link_to "Edit", edit_topic_bookmark_path(@topic, b) %>][<%= link_to "Delete", topic_bookmark_path(@topic, b), method: :delete, data: { confirm: "Are you sure?" } %>]
     </li>
   <% end %>
 </ul>

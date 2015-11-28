@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except: [:index, :show]
   end
 
   devise_for :users

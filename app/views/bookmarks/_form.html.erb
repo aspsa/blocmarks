@@ -1,0 +1,6 @@
+<!-- %= form_for :bookmark do |f| %> -->
+<%= form_for [topic, bookmark] do |f| %>
+  <%= f.label :url, "Bookmark Link:" %><br />
+  <%= f.text_field :url %><br /><br />
+  <%= f.submit %>
+<% end %>
