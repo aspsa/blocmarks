@@ -28,6 +28,9 @@ gem 'bootstrap-sass'
 # Blocmarks - User Sign Up feature
 gem 'devise'
 
+# Blocmarks - 7. User Authorization
+gem 'pundit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
