@@ -1,4 +1,7 @@
 <h1>Add a New Bookmark</h1>
 
-<!-- %= render partial: 'bookmarks' %> --->
-<%= render partial: 'form', locals: { topic: @topic, bookmark: @bookmark } %>
+<% if policy(@bookmark).create? %>
+  <%= render partial: 'form', locals: { topic: @topic, bookmark: @bookmark } %>
+<% else %>
+  <%= flash[:notice] = "You are unauthorized to add a new bookmark." %>
+<% end %>

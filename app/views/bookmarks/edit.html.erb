@@ -1,3 +1,7 @@
 <h1>Update a Bookmark</h1>
 
-<%= render partial: 'form', locals: { topic: @topic, bookmark: @bookmark } %>
+<% if policy(@bookmark).update? %>
+  <%= render partial: 'form', locals: { topic: @topic, bookmark: @bookmark } %>
+<% else %>
+  <%= flash[:notice] = "You are unauthorized to edit a bookmark." %>
+<% end %>

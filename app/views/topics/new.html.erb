@@ -1,2 +1,7 @@
-<h1>Create a New Topic</h1>
-<%= render partial: 'form' %>
+<h1>Add a New Topic</h1>
+
+<% if policy(@topic).create? %>
+  <%= render partial: 'form', locals: { topic: @topic } %>
+<% else %>
+  <%= flash[:notice] = "You are unauthorized to add a new topic." %>
+<% end %>

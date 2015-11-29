@@ -11,10 +11,10 @@ class BookmarksController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(bookmark_params)
+    authorize @bookmark
 
     if @bookmark.save
       flash[:notice] = "Bookmark saved."
-      #redirect_to topic_bookmark_path
       redirect_to @topic
     else
       flash[:error] = "Error: Bookmark not saved."
@@ -30,6 +30,7 @@ class BookmarksController < ApplicationController
   def update
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.find(params[:id])
+    authorize @bookmark
     
     if @bookmark.update_attributes(bookmark_params)
       flash[:notice] = "Bookmark was updated."
@@ -42,16 +43,14 @@ class BookmarksController < ApplicationController
   
   def destroy
     @topic = Topic.find(params[:topic_id])
-    #@bookmark = @topic.bookmarks(params[:id])
     @bookmark = @topic.bookmarks.find(params[:id])
+    authorize @bookmark
     
     if @bookmark.destroy
       flash[:notice] = "Bookmark deleted." # Add flash messaging to applications.html.erb
-      #redirect_to topics_path
       redirect_to @topic
     else
       flash[:error] = "Error: Bookmark not deleted."
-      #render "topics/index"
       redirect_to @topic
     end
   end

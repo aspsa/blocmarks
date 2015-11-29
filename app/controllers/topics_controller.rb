@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user = current_user
+    authorize @topic
     
     if @topic.save
       flash[:notice] = "Topic saved."
@@ -30,6 +31,7 @@ class TopicsController < ApplicationController
   
   def update
     @topic = Topic.find(params[:id])
+    authorize @topic
     
     if @topic.update(topic_params)
       flash[:notice] = "Topic updated."
@@ -42,6 +44,7 @@ class TopicsController < ApplicationController
   
   def destroy
     @topic = Topic.destroy(params[:id])
+    authorize @topic
     
     if @topic.destroy
       flash[:notice] = "Topic deleted." # Add flash messaging to applications.html.erb

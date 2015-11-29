@@ -1,2 +1,7 @@
 <h1>Edit Topic</h1>
-<%= render partial: 'form' %>
+
+<% if policy(@topic).update? %>
+  <%= render partial: 'form', locals: { topic: @topic } %>
+<% else %>
+  <%= flash[:notice] = "You are unauthorized to edit a topic." %>
+<% end %>

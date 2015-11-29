@@ -1,13 +1,11 @@
 # Blocmarks, 4. Receive Incoming Emails
-
 =begin
 ActionMailer::Base.smtp_settings = {
     port:                   587,
     address:                'smtp.mailgun.org',
     user_name:              ENV['MAILGUN_SMTP_LOGIN'],
     password:               ENV['MAILGUN_SMTP_PASSWORD'],
-    # domain:                 'sandbox98967c9f81f04a349f60aec00ffab0b2.mailgun.org',
-    domain:                 App8f98464a8abb43debd82df9205d8206d.Mailgun.Org,
+    domain:                 Appc2e7d05376dd4de68ecb3a39b7e42061.Mailgun.Org,
     authentication:         :plain,
     content_type:           'text/html'
 }
