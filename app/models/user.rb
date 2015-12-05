@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   
   # Blocmarks, 8. Like and Unlike Bookmarks
-  def liked(post)
+  def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first
   end
   
