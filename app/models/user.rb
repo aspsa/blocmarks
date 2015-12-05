@@ -8,4 +8,24 @@ class User < ActiveRecord::Base
          
   # Blocmarks, 4. Receive Incoming Emails
   has_many :topics
+  
+  # Can create, modify and delete any topic or bookmark
+  def admin?
+    role == 'admin'
+  end
+  
+  # Can delete other users' topics and bookmarks, but cannot edit them
+  def moderator?
+    role == 'moderator'
+  end
+  
+  # Can create/edit/delete one's own topics and bookmarks only
+  def member?
+    role == 'member'
+  end
+  
+  # Can read only any topic and bookmark
+  def guest?
+    role == 'guest'
+  end
 end
