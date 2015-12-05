@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
   # Blocmarks, 4. Receive Incoming Emails
   has_many :topics
   
+  # Blocmarks, 8. Like and Unlike Bookmarks
+  has_many :likes, dependent: :destroy
+  
+  # Blocmarks, 8. Like and Unlike Bookmarks
+  def liked(post)
+    likes.where(bookmark_id: bookmark.id).first
+  end
+  
   # Can create, modify and delete any topic or bookmark
   def admin?
     role == 'admin'

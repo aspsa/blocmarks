@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :topics do
     resources :bookmarks, except: [:index, :show]
+      # Blocmarks, 8. Like and Unlike Bookmarks
+      resources :likes, only: [:create, :destroy]
   end
 
   devise_for :users

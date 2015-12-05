@@ -11,4 +11,7 @@
 
   <p>Bookmark posted by <%= topic.user_id %></p>
   <p><%= link_to "Like", '#' %></p>
+  
+  <!-- Blocmarks, 8. Like and Unlike Bookmarks -->
+  <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
 <% end %>
