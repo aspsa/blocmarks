@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :topics do
-    resources :bookmarks, except: [:index, :show]
+    resources :bookmarks, except: [:index] do
+      # Blocmarks, 8. Like and Unlike Bookmarks
+      resources :likes, only: [:create, :destroy]
+    end
   end
 
   devise_for :users
