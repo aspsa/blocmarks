@@ -17,4 +17,13 @@ class UsersController < ApplicationController
           end
       end
    end
+   
+   def show
+      # Populate @user_bookmarks with the user's bookmarks
+      @topic = User.topic.find(params[:id])
+      @user_bookmarks = @user.topic.bookmarks.find(@user)
+
+      # Populate @Liked_bookmarks with Liked bookmarks
+      
+   end
 end

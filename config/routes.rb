@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   resources :topics do
     resources :bookmarks, except: [:index, :show]
   end
 
   devise_for :users
+  
+  # Blocmarks, 9. User Profiles
+  resources :users, only: [:show]
   
   # Blocmarks - Intro
   root 'welcome#index'
