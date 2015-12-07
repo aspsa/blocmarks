@@ -6,7 +6,7 @@
       <ul>
         <li>
           <%= bookmark.url %><br />
-          [<%= link_to "Delete", users_show_path(bookmark), data: { confirm: "Are you sure?" } %>]
+          [<%= link_to "Delete", topic_bookmark_path(topic, bookmark), method: :delete, data: { confirm: "Are you sure?" } %>]
         </li>
       </ul>
     <% end %>
@@ -22,6 +22,7 @@
           <li><%= bookmark.url %></li>
         <% end %>
       </ul>
+      <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
     <% end %>
   <% end %>
 <p>
