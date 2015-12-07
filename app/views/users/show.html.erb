@@ -14,15 +14,27 @@
 </p>
 
 <h1>Liked Bookmarks</h1>
-  <% @topics.each do |topic| %>
-    <p><%= topic.title %></p>
-    <% topic.bookmarks.each do |bookmark| %>
-      <ul>
-        <% unless current_user.liked(bookmark) %>
-          <li><%= bookmark.url %></li>
-        <% end %>
-      </ul>
-      <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+<p>
+  <% @users.each do |user| %>
+    <% @topics.each do |topic| %>
+      <p>
+        <%= topic.title %>: from 
+          <% if user == current_user %>
+            (me)
+          <% else %>
+            <%= user.email %>
+          <% end %>
+      </p>
+      
+      <% topic.bookmarks.each do |bookmark| %>
+        <ul>
+          <% unless user.liked(bookmark) %>
+            <li><%= bookmark.url %></li>
+            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+          <% end %>
+        </ul>
+      <% end %>
+      <br />
     <% end %>
   <% end %>
 <p>

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
    
    def show
       # Populate @user_bookmarks with the user's bookmarks
+      @users = User.all
       @user = User.find(current_user)
       @topics = @user.topics
    end
