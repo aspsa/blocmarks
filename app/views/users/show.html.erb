@@ -1,0 +1,40 @@
+<h1>My Blocmarks</h1>
+<p>
+  <% @topics.each do |topic| %>
+    <p><%= topic.title %></p>
+    <% topic.bookmarks.each do |bookmark| %>
+      <ul>
+        <li>
+          <%= bookmark.url %><br />
+          [<%= link_to "Delete", topic_bookmark_path(topic, bookmark), method: :delete, data: { confirm: "Are you sure?" } %>]
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<h1>Liked Bookmarks</h1>
+<p>
+  <% @users.each do |user| %>
+    <% @topics.each do |topic| %>
+      <p>
+        <%= topic.title %>: from 
+          <% if user == current_user %>
+            (me)
+          <% else %>
+            <%= user.email %>
+          <% end %>
+      </p>
+      
+      <% topic.bookmarks.each do |bookmark| %>
+        <ul>
+          <% unless user.liked(bookmark) %>
+            <li><%= bookmark.url %></li>
+            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+          <% end %>
+        </ul>
+      <% end %>
+      <br />
+    <% end %>
+  <% end %>
+<p>
